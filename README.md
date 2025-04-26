@@ -35,7 +35,8 @@ This application leverages the power of artificial intelligence (AI) to offer re
 <img width="941" alt="image" src="https://github.com/user-attachments/assets/4d9067ed-743d-4fa8-9964-ef3cca104415" />
 
 
-| ![Login](https://cdn-icons-png.freepik.com/512/1886/1886966.png) | ![Detection](https://images.pexels.com/photos/2255920/pexels-photo-2255920.jpeg?auto=compress&cs=tinysrgb&w=600) |
+
+12/1886/1886966.png) | ![Detection](https://images.pexels.com/photos/2255920/pexels-photo-2255920.jpeg?auto=compress&cs=tinysrgb&w=600) |
 
 ---
 
