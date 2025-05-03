@@ -31,6 +31,7 @@ Feel free to explore or download it for your own experiments!
 - [OpenCV](https://opencv.org/) — for image and video processing
 - [Ultralytics YOLOv8](https://docs.ultralytics.com/) — for object detection (pests)
 - [Hashlib](https://docs.python.org/3/library/hashlib.html) — for secure password hashing
+- [SQLite](https://www.sqlite.org/) — for database management (embedded, lightweight relational database)
 
 ---
 
