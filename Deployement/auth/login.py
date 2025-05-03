@@ -1,18 +1,9 @@
 import streamlit as st
-import hashlib
+from auth.auth_utils import init_db, verify_user, add_user, user_exists
 
-# --- Password Hashing ---
-def hash_password(password):
-    return hashlib.sha256(password.encode()).hexdigest()
-
-# --- Dummy User Database ---
-users = {
-    "farmer1": hash_password("password123"),
-    "admin": hash_password("admin123")
-}
-
-# --- Login Screen ---
 def login_screen():
+    init_db()  # Ensure DB is initialized
+
     # --- CSS Animations and Styling ---
     st.markdown("""
     <style>
@@ -44,8 +35,8 @@ def login_screen():
     .stTextInput > div > div > input {
         font-size: 20px;
         padding: 15px;
-        margin-bottom: 15px; /* Add margin to separate fields */
-        width: 100%; /* Make inputs full width */
+        margin-bottom: 15px;
+        width: 100%;
     }
 
     .stButton button {
@@ -95,23 +86,32 @@ def login_screen():
     </div>
     """, unsafe_allow_html=True)
 
-    # --- Login Box ---
-    with st.container():
-        
-        username = st.text_input("👤 Username")
-        password = st.text_input("🔑 Password", type="password")
-        login_button = st.button("🔓 Login")
-        
-        
+    # --- Toggle between login and register ---
+    page = st.radio("Choose an option:", ["🔐 Login", "📝 Create Account"], horizontal=True)
 
-    # --- Login Logic ---
-    if login_button:
-        if username in users and users[username] == hash_password(password):
-            st.session_state.logged_in = True
-            st.success("✅ Login successful! Redirecting...")
-            st.balloons()
-            st.rerun()
-        else:
-            st.error("❌ Invalid username or password.")
-            st.markdown("<div class='error'></div>", unsafe_allow_html=True)
+    # --- Input Fields ---
+    username = st.text_input("👤 Username")
+    password = st.text_input("🔑 Password", type="password")
 
+    if page == "🔐 Login":
+        if st.button("🔓 Login"):
+            if verify_user(username, password):
+                st.session_state.logged_in = True
+                st.success("✅ Login successful! Redirecting...")
+                st.balloons()
+                st.rerun()
+            else:
+                st.error("❌ Invalid username or password.")
+                st.markdown("<div class='error'></div>", unsafe_allow_html=True)
+    else:
+        confirm_password = st.text_input("🔁 Confirm Password", type="password")
+        if st.button("🆕 Create Account"):
+            if user_exists(username):
+                st.warning("⚠️ Username already exists.")
+            elif password != confirm_password:
+                st.warning("⚠️ Passwords do not match.")
+            elif not username or not password:
+                st.warning("⚠️ All fields are required.")
+            else:
+                add_user(username, password)
+                st.success("✅ Account created successfully! Please login.")

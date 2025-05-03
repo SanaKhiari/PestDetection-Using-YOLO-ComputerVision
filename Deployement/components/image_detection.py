@@ -7,7 +7,7 @@ import pandas as pd
 @st.cache_data
 def load_pest_info():
     try:
-        pest_info = pd.read_csv(r"C:\Users\21624\Desktop\yolo v8\detailed_pests_solutions.csv")
+        pest_info = pd.read_csv(r"utils\detailed_pests_solutions.csv")
         return pest_info
     except Exception as e:
         st.error(f"Error loading CSV file: {e}")

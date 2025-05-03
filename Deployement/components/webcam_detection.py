@@ -6,7 +6,7 @@ import numpy as np
 @st.cache_data
 def load_pest_info():
     try:
-        return pd.read_csv(r"C:\Users\21624\Desktop\yolo v8\detailed_pests_solutions.csv")
+        return pd.read_csv(r"utils\detailed_pests_solutions.csv")
     except Exception as e:
         st.error(f"Error loading CSV: {e}")
         return pd.DataFrame()
