@@ -4,6 +4,14 @@ Welcome to **ComputerVision-YOLO-PestDetection** — a smart Streamlit applicati
 This application leverages the power of artificial intelligence (AI) to offer real-time pest detection from images, videos, and live webcam feeds, making it an essential tool for effective pest management in agriculture.
 
 ---
+---
+
+## 📦 Dataset
+
+The pest detection model is trained using this [https://www.kaggle.com/datasets/tarundalal/dangerous-insects-dataset?resource=download] 🐞.  
+Feel free to explore or download it for your own experiments!
+
+---
 
 ## 🚀 Features
 
@@ -36,8 +44,10 @@ This application leverages the power of artificial intelligence (AI) to offer re
 
 
 
-12/1886/1886966.png) | ![Detection](https://images.pexels.com/photos/2255920/pexels-photo-2255920.jpeg?auto=compress&cs=tinysrgb&w=600) |
+|
 
 ---
+
+
 
 
